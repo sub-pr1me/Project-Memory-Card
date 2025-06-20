@@ -1,0 +1,22 @@
+.pic {
+    /* will-change: transform, opacity; */
+    animation: slide-in 0.7s both, opacity 1.5s both;
+}
+
+@keyframes slide-in {
+    0% {
+      transform: translate(-100%, -100%) scale(0%) rotate(0);
+    }
+    100% {
+      transform: translate(500%,500%) scale(200%) rotate(360deg);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
