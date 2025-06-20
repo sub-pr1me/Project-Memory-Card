@@ -1,0 +1,45 @@
+.header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 5vh;
+}
+
+.header img {
+    width: clamp(100px, 50vw, 400px);
+}
+
+.game_name {
+    margin-bottom: 4vh;
+}
+
+button {
+    margin-bottom: 6vh;
+}
+
+.diff {
+    margin-bottom: 2vh;
+}
+
+.game_name {
+    font-size: clamp(15px, 2vw, 20px);
+}
+
+.diff,
+.diff_option {
+    font-size: clamp(15px, 2vw, 20px);
+}
+
+.option_container {
+    display: flex;
+    gap: 6vw;
+}
+
+.hidden {
+    display: none;
+}

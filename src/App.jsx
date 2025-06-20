@@ -1,12 +1,17 @@
 import styles from './styles/App.module.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useImmer } from 'use-immer';
+import Header from './components/Header.jsx';
 import Display from './components/Display.jsx';
 
 function App() {
-
-  const [pool, setPool] = useState(null);
+  const [gameStarted, setGameStarted] = useState(true);
   const [difficulty, setDifficulty] = useState(10);
+  const [pool, setPool] = useState(null);
+  const [currentScore, setCurrentScore] = useImmer(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [showNames, setShowNames] = useState(true);
 
   function capitalize(val) {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
@@ -56,8 +61,25 @@ function App() {
   return (
     <>
       {
-        pool && 
-        <Display pool={pool}/>
+        pool &&
+        <>
+          <Header
+            gameStarted={gameStarted}
+            setGameStarted={setGameStarted}
+            difficulty={difficulty}
+            setDifficulty={setDifficulty}
+          />
+          <Display
+            gameStarted={gameStarted}
+            pool={pool}
+            setPool={setPool}
+            currentScore={currentScore}
+            setCurrentScore={setCurrentScore}
+            bestScore={bestScore}
+            setBestScore={setBestScore}
+            showNames={showNames}
+          />
+        </>
       }
     </>
   )

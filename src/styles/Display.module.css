@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30vh;
     row-gap: 10vh;
 }
 
@@ -12,14 +11,21 @@
     justify-content: flex-end;
     align-items: center;
     width: 20vw;
-    /* margin-bottom: 10vh; */
 }
 
-img {
-    height: clamp(60px, 13vw, 150px);
+.display img {
+    height: clamp(50px, 13vw, 150px);
     max-width: 20vw;
     margin-bottom: 2vh;
-    animation: appear 0.7s both, fade-in 1s both 0.2s;
+    animation: appear 0.7s both 0.1s, fade-in 1s both 0.2s;
+}
+
+.text {
+    font-size: clamp(15px, 2vw, 18px);
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes appear {
