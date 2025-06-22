@@ -21,7 +21,7 @@
 }
 
 .header img {
-    width: clamp(120px, 50vw, 400px);
+    width: clamp(120px, 50vw, 300px);
 }
 
 .game_name {
@@ -37,7 +37,7 @@ button {
 }
 
 .game_name {
-    font-size: clamp(10px, 2.8vw, 22px);
+    font-size: clamp(12px, 2.8vw, 16px);
 }
 
 .diff,

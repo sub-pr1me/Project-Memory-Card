@@ -12,20 +12,20 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    width: 20vw;
+    width: 19vw;
     height: fit-content;
     cursor: pointer;
 }
 
 .display img {
-    height: clamp(50px, 13vw, 110px);
+    height: clamp(5vh, 12vw, 9vh);
     max-width: 20vw;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
 
 }
 
 .text {
-    font-size: clamp(13px, 1.8vw, 20px);
+    font-size: clamp(12px, 1.8vw, 16px);
 }
 
 .hidden {

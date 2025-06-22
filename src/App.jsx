@@ -8,7 +8,7 @@ import ControlPanel from './components/ControlPanel.jsx';
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
-  const [difficulty, setDifficulty] = useState(10);
+  const [difficulty, setDifficulty] = useState(20);
   const [pool, setPool] = useState(null);
   const [clicked, setClicked] = useImmer([]);
   const [currentScore, setCurrentScore] = useImmer({ count: 0 });
