@@ -12,9 +12,10 @@ const ControlPanel = ({ gameStarted, setGameStarted, currentScore, setCurrentSco
             <button
                 onClick={() => {
                     setLost(false);
-                    setRestart(true);
                     if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
                     setCurrentScore((draft) => {draft.count = 0});
+                    setClicked((draft) => {while (draft.length) {draft.pop()}});
+                    setRestart(true);
                 }}
             >{lost ? 'Try Again' : 'Restart'}</button>
             <button
