@@ -1,10 +1,6 @@
-import { useState } from 'react'
-import { useImmer } from 'use-immer'
 import styles from '../styles/Display.module.css'
 
-function Display({ pool, setPool, currentScore, setCurrentScore, bestScore, setBestScore, showNames }) {
-
-  const [clicked, setClicked] = useImmer([]);
+function Display({ gameStarted, pool, setPool, clicked, setClicked, setCurrentScore, showNames, handleLoss, lost }) {
 
   function mixPokemons(data) {
     let current = data;
@@ -20,25 +16,32 @@ function Display({ pool, setPool, currentScore, setCurrentScore, bestScore, setB
   function handleChoice(item) {
     if (!clicked.includes(item)) {
       setClicked((draft) => {draft.push(item)});
-      setCurrentScore((draft) => {draft+1});
+      setCurrentScore((draft) => {draft.count++});
       setPool(mixPokemons(pool));
     } else {
-      console.log('GAME OVER');
-      if (currentScore > bestScore) {setBestScore(currentScore)};
+      handleLoss();
     }
   };
 
   const getRandomKey = () => {
     return crypto.randomUUID();
-}
+  }
 
   return (
-    <div className={`${styles.display}`}>
+    <div className={`${styles.display}
+                     ${gameStarted ? null : styles.hidden}
+                     ${lost ? styles.hidden : null}`
+         }
+      >
       {pool.map((item) => {
           return (
-            <div key={getRandomKey()} className={`${styles.card} ${styles.enterAnimation}`} onClick={() => {handleChoice(item.name)}}>
+            <div
+              key={getRandomKey()}
+              className={`${styles.card} ${styles.enterAnimation}`}
+              onClick={() => {handleChoice(item.name)}}
+            >
               <img src={item.gif} alt={item.name}/>
-              <div className={`${styles.text} ${showNames ? null : styles.hidden}`}>{item.name}</div>
+              <div className={`${styles.text} ${showNames ? null : styles.exitAnimation}`}>{item.name}</div>
             </div>
           )
         })

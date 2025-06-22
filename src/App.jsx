@@ -4,14 +4,19 @@ import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import Header from './components/Header.jsx';
 import Display from './components/Display.jsx';
+import ControlPanel from './components/ControlPanel.jsx';
 
 function App() {
-  const [gameStarted, setGameStarted] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
   const [difficulty, setDifficulty] = useState(10);
   const [pool, setPool] = useState(null);
-  const [currentScore, setCurrentScore] = useImmer(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [showNames, setShowNames] = useState(true);
+  const [clicked, setClicked] = useImmer([]);
+  const [currentScore, setCurrentScore] = useImmer({ count: 0 });
+  const [bestScore, setBestScore] = useImmer({ count: 0 });
+  const [showNames, setShowNames] = useImmer(true);
+  const [won, setWon] = useState(false);
+  const [lost, setLost] = useState(false);
+  const [restart, setRestart] = useState(false);
 
   function capitalize(val) {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
@@ -25,7 +30,21 @@ function App() {
     return result;
   }
 
+  function handleLoss() {
+    if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
+    setLost(true);
+    console.log('YOU LOSE');
+  }
+
+  function handleWin() {
+    if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
+    setCurrentScore((draft) => {draft.count = 0});
+    setWon(true);
+    console.log('YOU WIN');
+  }
+
   useEffect(() => {
+    setRestart(false);
     const abort = new AbortController();
     let names = [];
     let items =[];
@@ -56,7 +75,11 @@ function App() {
     return () => {
       abort.abort();
     };
-  }, []);
+  }, [won, lost, difficulty, restart]);
+
+  if (currentScore.count === difficulty) {
+    handleWin();
+  }
 
   return (
     <>
@@ -66,18 +89,33 @@ function App() {
           <Header
             gameStarted={gameStarted}
             setGameStarted={setGameStarted}
-            difficulty={difficulty}
-            setDifficulty={setDifficulty}
           />
           <Display
             gameStarted={gameStarted}
             pool={pool}
             setPool={setPool}
+            clicked={clicked}
+            setClicked={setClicked}
+            setCurrentScore={setCurrentScore}
+            showNames={showNames}
+            handleLoss={handleLoss}
+            lost={lost}
+          />
+          <ControlPanel
+            gameStarted={gameStarted}
+            setGameStarted={setGameStarted}
             currentScore={currentScore}
             setCurrentScore={setCurrentScore}
             bestScore={bestScore}
             setBestScore={setBestScore}
             showNames={showNames}
+            setShowNames={setShowNames}
+            won={won}
+            setWon={setWon}
+            lost={lost}
+            setLost={setLost}
+            setRestart={setRestart}
+            setClicked={setClicked}
           />
         </>
       }
