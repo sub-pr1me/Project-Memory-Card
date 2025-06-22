@@ -11,13 +11,14 @@
     justify-content: flex-end;
     align-items: center;
     width: 20vw;
+    will-change: opacity, transform;
 }
 
 .display img {
     height: clamp(50px, 13vw, 150px);
     max-width: 20vw;
     margin-bottom: 2vh;
-    animation: appear 0.7s both 0.1s, fade-in 1s both 0.2s;
+
 }
 
 .text {
@@ -26,6 +27,14 @@
 
 .hidden {
     display: none;
+}
+
+.enterAnimation {
+    animation: appear 0.7s both 0.1s, fade-in 1s both 0.2s;
+}
+
+.exitAnimation {
+    animation: disappear 0.7s both 0.1s, fade-out 1s both 0.2s;
 }
 
 @keyframes appear {
@@ -43,5 +52,23 @@
     }
     100% {
         opacity: 100%;
+    }
+}
+
+@keyframes disappear {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0.01%;
     }
 }

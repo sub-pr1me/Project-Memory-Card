@@ -5,7 +5,6 @@ import styles from '../styles/Display.module.css'
 function Display({ pool, setPool, currentScore, setCurrentScore, bestScore, setBestScore, showNames }) {
 
   const [clicked, setClicked] = useImmer([]);
-  const [hidePokemons, setHidePokemons] = useState(false);
 
   function mixPokemons(data) {
     let current = data;
@@ -19,7 +18,6 @@ function Display({ pool, setPool, currentScore, setCurrentScore, bestScore, setB
   };
 
   function handleChoice(item) {
-    setHidePokemons(true);
     if (!clicked.includes(item)) {
       setClicked((draft) => {draft.push(item)});
       setCurrentScore((draft) => {draft+1});
@@ -30,12 +28,16 @@ function Display({ pool, setPool, currentScore, setCurrentScore, bestScore, setB
     }
   };
 
+  const getRandomKey = () => {
+    return crypto.randomUUID();
+}
+
   return (
     <div className={`${styles.display}`}>
       {pool.map((item) => {
           return (
-            <div className={styles.card} onClick={() => {handleChoice(item.name)}} key={item.id}>
-              <img src={item.gif} alt={item.name} className={`${hidePokemons ? styles.exitAnimation : null}`}/>
+            <div key={getRandomKey()} className={`${styles.card} ${styles.enterAnimation}`} onClick={() => {handleChoice(item.name)}}>
+              <img src={item.gif} alt={item.name}/>
               <div className={`${styles.text} ${showNames ? null : styles.hidden}`}>{item.name}</div>
             </div>
           )
