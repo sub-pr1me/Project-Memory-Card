@@ -22,14 +22,14 @@ function Header({ gameStarted, setGameStarted, difficulty, setDifficulty, lost, 
                      ${gameStarted ? styles.lifted : null}
                      ${notrans ? styles.no_transition : null}`}>
         <img src="../../image/logo.png" alt="Game Logo" />
-        <div className={styles.game_name}>Memory Card Game</div>
+        <div className={styles.game_name}>MEMORY CARD GAME</div>
 
         <div className={`
                         ${styles.endgame}
                         ${won || lost ? null : styles.hidden}
                         `}>{won ?
-                        `Congratulations! You win with a score of ${difficulty}!` :
-                        `You lose with a score of ${currentScore.count}. Try again!`}
+                        `CONGRATULATIONS! YOU WIN WITH A SCORE OF ${difficulty}!` :
+                        `YOU LOSE WITH A SCORE OF ${currentScore.count}. TRY AGAIN!`}
         </div>
 
         <button
@@ -37,11 +37,11 @@ function Header({ gameStarted, setGameStarted, difficulty, setDifficulty, lost, 
           onClick={() => {setGameStarted(true)}}
         >START
         </button>
-        <div className={`${styles.diff} ${gameStarted ? styles.hidden : null}`}>Choose Difficulty:</div>
+        <div className={`${styles.diff} ${gameStarted ? styles.hidden : null}`}>CHOOSE DIFFICULTY:</div>
         <div className={`${styles.option_container} ${gameStarted ? styles.hidden : null}`}>
-            <div className={`${styles.option} ${difficulty === 10 ? styles.chosen : null}`} onClick={() => {setDifficulty(10)}}>Easy</div>
-            <div className={`${styles.option} ${difficulty === 15 ? styles.chosen : null}`} onClick={() => {setDifficulty(15)}}>Normal</div>
-            <div className={`${styles.option} ${difficulty === 20 ? styles.chosen : null}`} onClick={() => {setDifficulty(20)}}>Hard</div>
+            <div className={`${styles.option} ${difficulty === 10 ? styles.chosen : null}`} onClick={() => {setDifficulty(10)}}>EASY</div>
+            <div className={`${styles.option} ${difficulty === 15 ? styles.chosen : null}`} onClick={() => {setDifficulty(15)}}>NORMAL</div>
+            <div className={`${styles.option} ${difficulty === 20 ? styles.chosen : null}`} onClick={() => {setDifficulty(20)}}>HARD</div>
         </div>
     </div>
   )

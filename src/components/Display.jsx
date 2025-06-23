@@ -31,7 +31,9 @@ function Display({ gameStarted, pool, setPool, clicked, setClicked,
   return (
     <div className={`${styles.display}
                      ${gameStarted ? null : styles.hidden}
-                     ${lost || won ? styles.hidden : null}`
+                     ${lost || won ? styles.hidden : null}
+                     ${difficulty === 10 ? styles.easy : null}
+                     ${difficulty === 15 ? styles.normal : null}`
          }
       >
       {pool.map((item) => {

@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'fugaz';
+    src: url(../../font/Fugaz_One/FugazOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'viga';
+    src: url(../../font/Viga/Viga-Regular.ttf);
+}
+
+/* .header * {
+    outline: 1px solid greenyellow;
+} */
+
 .header {
     position: relative;
     z-index: 1;
@@ -21,52 +35,81 @@
 }
 
 .header img {
-    width: clamp(120px, 50vw, 300px);
+    width: clamp(240px, 80vw, 400px);
 }
 
 .game_name {
-    margin-bottom: 4vh;
+    margin-bottom: clamp(30px, 5vh, 60px);
+    font-size: clamp(12px, 4vw, 20px);
+    font-family: 'fugaz';
+    color: rgb(238, 204, 55);
+    text-shadow:
+    -2px -2px 0 rgb(50, 84, 158),  
+     2px -2px 0 rgb(50, 84, 158),
+    -2px 2px 0 rgb(50, 84, 158),
+     2px 2px 0 rgb(50, 84, 158);
 }
 
-button {
-    margin-bottom: 6vh;
+.header button {
+    margin-bottom: clamp(30px, 8vh, 100px);
+    padding: 5px clamp(6px, 2vw, 10px) 0;
+    cursor: pointer;
+    font-family: 'fugaz';
+    font-size: clamp(18px, 5vw, 25px);
+    text-align: center;
+    background-color: rgb(50, 84, 158);
+    color: rgb(238, 204, 55);
+    border: 2px solid rgb(238, 204, 55);
+    border-radius: 25px;
+}
+
+button:hover {
+    transform: scale(110%);
+    transition: 0.2s ease-in-out;
 }
 
 .diff {
-    margin-bottom: 2vh;
-}
-
-.game_name {
-    font-size: clamp(12px, 2.8vw, 16px);
-}
-
-.diff {
-    font-size: clamp(12px, 1.5vw, 15px);
+    margin-bottom: clamp(12px, 5vh, 30px);
+    font-size: clamp(11px, 2vw, 17px);
+    font-family: 'fugaz';
+    color: rgb(238, 204, 55);
+    text-shadow:
+    -2px -2px 0 rgb(50, 84, 158),  
+     2px -2px 0 rgb(50, 84, 158),
+    -2px 2px 0 rgb(50, 84, 158),
+     2px 2px 0 rgb(50, 84, 158);
 }
 
 .option {
-    font-size: clamp(15px, 2vw, 20px);
-}
-
-.option{
     cursor: pointer;
+    font-family: 'fugaz';
+    font-size: clamp(14px, 2.5vw, 20px);
+    padding: 2px clamp(6px, 2vw, 10px) 0;
+    color: rgb(238, 204, 55);
+    background-color: rgba(50, 84, 158, 0);
+    border: 2px solid rgba(238, 204, 55, 0);
+    border-radius: 25px;
+    text-shadow:
+    -2px -2px 0 rgb(50, 84, 158),  
+     2px -2px 0 rgb(50, 84, 158),
+    -2px 2px 0 rgb(50, 84, 158),
+     2px 2px 0 rgb(50, 84, 158);
 }
 
 .option:hover {
-    color: rgba(255, 246, 167, 0.952);
-    text-shadow:1px 1px 10px #6eb9ff, 1px 1px 10px #8dc8ff;
-    transform: scale(110%);
     transition: 0.1s ease-in-out;
 }
 
 .chosen {
-    color: rgb(255, 241, 41);
-    /* -webkit-text-stroke: 0.5px blue; */
-    /* font-weight: 900; */
+    background-color: rgb(50, 84, 158);
+    border: 2px solid rgb(238, 204, 55);
+    border-radius: 25px;
+    transition: 0.5s ease-in-out;
 }
 
 .option_container {
     display: flex;
+    align-items: center;
     gap: 6vw;
 }
 
@@ -76,10 +119,14 @@ button {
 
 .endgame {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 239, 151);
-    color: rgb(45, 118, 255);
-    width: 50vw;
-    height: 33vw;
+    font-family: 'fugaz';
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: clamp(10px, 4vw, 24px);
+    padding: clamp(14px, 3vh, 200px);
+    color: rgb(238, 204, 55);
+    background-color: rgb(50, 84, 158);
+    border: 2px solid rgb(238, 204, 55);
+    border-radius: 25px;
+    margin-top: 10vh;
 }

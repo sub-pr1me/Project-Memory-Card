@@ -1,13 +1,19 @@
-/* .controls * {
-    outline: 1px solid greenyellow;
-} */
+@font-face {
+    font-family: 'fugaz';
+    src: url(../../font/Fugaz_One/FugazOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'viga';
+    src: url(../../font/Viga/Viga-Regular.ttf);
+}
 
 .controls {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 6vh;
+    margin-top: 3vh;
     column-gap: 8vw;
     min-width: 300px;
     width: 100%;
@@ -29,12 +35,37 @@
     width: fit-content;
 }
 
+.score,
+.best_score,
+.options {
+    font-size: clamp(10px, 3.5vw, 18px);
+    font-family: 'fugaz';
+    color: rgb(238, 204, 55);
+    text-shadow:
+    -2px -2px 0 rgb(50, 84, 158),  
+     2px -2px 0 rgb(50, 84, 158),
+    -2px 2px 0 rgb(50, 84, 158),
+     2px 2px 0 rgb(50, 84, 158);
+}
+
 .btns {
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 5vw;
     width: fit-content;
+}
+
+.controls button {
+    padding: 0.5vh 2vw 0;
+    cursor: pointer;
+    font-family: 'fugaz';
+    font-size: clamp(12px, 4vw, 18px);
+    text-align: center;
+    background-color: rgb(50, 84, 158);
+    color: rgb(238, 204, 55);
+    border: 2px solid rgb(238, 204, 55);
+    border-radius: 25px;
 }
 
 .controls button {
@@ -50,6 +81,18 @@
     align-self: center;
 }
 
+label {
+    transform: translateY(5%);
+} 
+
 .hidden {
     display: none;
+}
+
+.easy {
+    transform: translateY(24vh);
+}
+
+.normal {
+    transform: translateY(10vh);
 }

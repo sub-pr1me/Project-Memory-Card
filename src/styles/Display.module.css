@@ -1,9 +1,19 @@
+@font-face {
+    font-family: 'fugaz';
+    src: url(../../font/Fugaz_One/FugazOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'viga';
+    src: url(../../font/Viga/Viga-Regular.ttf);
+}
+
 .display {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    row-gap: 5vh;
+    row-gap: 4vh;
     height: fit-content;
 }
 
@@ -18,13 +28,21 @@
 }
 
 .display img {
-    height: clamp(5vh, 12vw, 9vh);
+    height: clamp(5vh, 14vw, 9vh);
     max-width: 20vw;
     margin-bottom: 1vh;
 }
 
 .text {
-    font-size: clamp(12px, 1.8vw, 16px);
+    margin-top: 0.5vw;
+    font-size: clamp(8px, 2.5vw, 15px);
+    font-family: 'viga';
+    color: rgb(238, 204, 55);
+    text-shadow:
+    -2px -2px 0 rgb(50, 84, 158),  
+     2px -2px 0 rgb(50, 84, 158),
+    -2px 2px 0 rgb(50, 84, 158),
+     2px 2px 0 rgb(50, 84, 158);
 }
 
 .hidden {
@@ -37,6 +55,16 @@
 
 .exitAnimation {
     animation: fade-out 0.5s both;
+}
+
+.easy {
+    transform: translateY(40%);
+    row-gap: 10vh;
+}
+
+.normal {
+    transform: translateY(10%);
+    row-gap: 7vh;
 }
 
 @keyframes appear {

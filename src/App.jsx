@@ -18,10 +18,6 @@ function App() {
   const [lost, setLost] = useState(false);
   const [restart, setRestart] = useState(false);
 
-  function capitalize(val) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-  }
-
   function getLink(url) {
     let cut = url;
     let forward = cut.slice(34);
@@ -55,7 +51,7 @@ function App() {
         while (names.length < difficulty) {
           // fetching a random pokemon
           let random = obj.results[Math.floor(Math.random()*100)];
-          random.name = capitalize(random.name);
+          random.name = random.name.toUpperCase();
           random.id = crypto.randomUUID();
           random.gif = getLink(random.url);
 
@@ -123,6 +119,7 @@ function App() {
             setLost={setLost}
             setRestart={setRestart}
             setClicked={setClicked}
+            difficulty={difficulty}
           />
         </>
       }
