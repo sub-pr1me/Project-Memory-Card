@@ -2,7 +2,7 @@ import styles from '../styles/Header.module.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-function Header({ gameStarted, setGameStarted, difficulty, setDifficulty }) {
+function Header({ gameStarted, setGameStarted, difficulty, setDifficulty, lost, won, currentScore }) {
 
   const [notrans, setNotrans] = useState(false);
 
@@ -23,6 +23,15 @@ function Header({ gameStarted, setGameStarted, difficulty, setDifficulty }) {
                      ${notrans ? styles.no_transition : null}`}>
         <img src="../../image/logo.png" alt="Game Logo" />
         <div className={styles.game_name}>Memory Card Game</div>
+
+        <div className={`
+                        ${styles.endgame}
+                        ${won || lost ? null : styles.hidden}
+                        `}>{won ?
+                        `Congratulations! You win with a score of ${difficulty}!` :
+                        `You lose with a score of ${currentScore.count}. Try again!`}
+        </div>
+
         <button
           className={`${gameStarted ? styles.hidden : null}`}
           onClick={() => {setGameStarted(true)}}

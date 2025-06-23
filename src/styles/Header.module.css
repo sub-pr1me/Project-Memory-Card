@@ -70,6 +70,16 @@ button {
     gap: 6vw;
 }
 
-.hidden {
+.header .hidden {
     display: none;
+}
+
+.endgame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 239, 151);
+    color: rgb(45, 118, 255);
+    width: 50vw;
+    height: 33vw;
 }

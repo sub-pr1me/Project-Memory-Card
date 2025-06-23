@@ -1,7 +1,7 @@
 import styles from '../styles/Display.module.css'
 
 function Display({ gameStarted, pool, setPool, clicked, setClicked,
-                   setCurrentScore, showNames, handleLoss, lost, difficulty }) {
+                   setCurrentScore, showNames, handleLoss, lost, won, difficulty }) {
 
   function mixPokemons(data) {
     let current = data;
@@ -31,7 +31,7 @@ function Display({ gameStarted, pool, setPool, clicked, setClicked,
   return (
     <div className={`${styles.display}
                      ${gameStarted ? null : styles.hidden}
-                     ${lost ? styles.hidden : null}`
+                     ${lost || won ? styles.hidden : null}`
          }
       >
       {pool.map((item) => {

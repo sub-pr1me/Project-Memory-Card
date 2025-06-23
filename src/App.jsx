@@ -8,7 +8,7 @@ import ControlPanel from './components/ControlPanel.jsx';
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
-  const [difficulty, setDifficulty] = useState(20);
+  const [difficulty, setDifficulty] = useState(15);
   const [pool, setPool] = useState(null);
   const [clicked, setClicked] = useImmer([]);
   const [currentScore, setCurrentScore] = useImmer({ count: 0 });
@@ -38,8 +38,8 @@ function App() {
 
   function handleWin() {
     if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
-    setCurrentScore((draft) => {draft.count = 0});
     setWon(true);
+    setCurrentScore((draft) => {draft.count = 0});
     console.log('YOU WIN');
   }
 
@@ -91,6 +91,9 @@ function App() {
             setGameStarted={setGameStarted}
             difficulty={difficulty}
             setDifficulty={setDifficulty}
+            lost={lost}
+            won={won}
+            currentScore={currentScore}
           />
           <Display
             gameStarted={gameStarted}
@@ -102,6 +105,7 @@ function App() {
             showNames={showNames}
             handleLoss={handleLoss}
             lost={lost}
+            won={won}
             difficulty={difficulty}
           />
           <ControlPanel

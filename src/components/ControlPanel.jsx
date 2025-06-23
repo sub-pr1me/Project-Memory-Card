@@ -4,7 +4,7 @@ const ControlPanel = ({ gameStarted, setGameStarted, currentScore, setCurrentSco
                         setShowNames, showNames, won, setWon, lost, setLost, setRestart, setClicked }) => {
   return (
     <div className={`${styles.controls} ${gameStarted ? null : styles.hidden} ${lost ? styles.column : null}`}>
-        <div className={styles.scores}>
+        <div className={`${styles.scores} ${won || lost ? styles.hidden : null}`}>
             <div className={styles.score}>{`SCORE: ${currentScore.count}`}</div>
             <div className={styles.best_score}>{`BEST SCORE: ${bestScore.count}`}</div>
         </div>
@@ -12,6 +12,7 @@ const ControlPanel = ({ gameStarted, setGameStarted, currentScore, setCurrentSco
             <button
                 onClick={() => {
                     setLost(false);
+                    setWon(false);
                     if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
                     setCurrentScore((draft) => {draft.count = 0});
                     setClicked((draft) => {while (draft.length) {draft.pop()}});
