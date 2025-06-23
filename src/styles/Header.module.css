@@ -40,9 +40,29 @@ button {
     font-size: clamp(12px, 2.8vw, 16px);
 }
 
-.diff,
-.diff_option {
+.diff {
+    font-size: clamp(12px, 1.5vw, 15px);
+}
+
+.option {
     font-size: clamp(15px, 2vw, 20px);
+}
+
+.option{
+    cursor: pointer;
+}
+
+.option:hover {
+    color: rgba(255, 246, 167, 0.952);
+    text-shadow:1px 1px 10px #6eb9ff, 1px 1px 10px #8dc8ff;
+    transform: scale(110%);
+    transition: 0.1s ease-in-out;
+}
+
+.chosen {
+    color: rgb(255, 241, 41);
+    /* -webkit-text-stroke: 0.5px blue; */
+    /* font-weight: 900; */
 }
 
 .option_container {

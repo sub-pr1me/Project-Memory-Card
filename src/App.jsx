@@ -89,6 +89,8 @@ function App() {
           <Header
             gameStarted={gameStarted}
             setGameStarted={setGameStarted}
+            difficulty={difficulty}
+            setDifficulty={setDifficulty}
           />
           <Display
             gameStarted={gameStarted}
@@ -100,6 +102,7 @@ function App() {
             showNames={showNames}
             handleLoss={handleLoss}
             lost={lost}
+            difficulty={difficulty}
           />
           <ControlPanel
             gameStarted={gameStarted}

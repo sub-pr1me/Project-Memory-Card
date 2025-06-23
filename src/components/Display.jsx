@@ -1,11 +1,12 @@
 import styles from '../styles/Display.module.css'
 
-function Display({ gameStarted, pool, setPool, clicked, setClicked, setCurrentScore, showNames, handleLoss, lost }) {
+function Display({ gameStarted, pool, setPool, clicked, setClicked,
+                   setCurrentScore, showNames, handleLoss, lost, difficulty }) {
 
   function mixPokemons(data) {
     let current = data;
     let mixed = [];
-    while (mixed.length < 10) {
+    while (mixed.length < difficulty) {
       let random = Math.floor(Math.random()*10);
       let item = current.pop();
       mixed.splice(random, 0, item);      

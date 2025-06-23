@@ -2,7 +2,7 @@ import styles from '../styles/Header.module.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-function Header({ gameStarted, setGameStarted }) {
+function Header({ gameStarted, setGameStarted, difficulty, setDifficulty }) {
 
   const [notrans, setNotrans] = useState(false);
 
@@ -30,9 +30,9 @@ function Header({ gameStarted, setGameStarted }) {
         </button>
         <div className={`${styles.diff} ${gameStarted ? styles.hidden : null}`}>Choose Difficulty:</div>
         <div className={`${styles.option_container} ${gameStarted ? styles.hidden : null}`}>
-            <div className={`${styles.diff_option}`}>Easy</div>
-            <div className={`${styles.diff_option}`}>Normal</div>
-            <div className={`${styles.diff_option}`}>Hard</div>
+            <div className={`${styles.option} ${difficulty === 10 ? styles.chosen : null}`} onClick={() => {setDifficulty(10)}}>Easy</div>
+            <div className={`${styles.option} ${difficulty === 15 ? styles.chosen : null}`} onClick={() => {setDifficulty(15)}}>Normal</div>
+            <div className={`${styles.option} ${difficulty === 20 ? styles.chosen : null}`} onClick={() => {setDifficulty(20)}}>Hard</div>
         </div>
     </div>
   )
