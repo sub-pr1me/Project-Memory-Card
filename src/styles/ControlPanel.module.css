@@ -96,3 +96,11 @@ label {
 .normal {
     transform: translateY(10vh);
 }
+
+.movedown15 {
+    margin-top: 15vh;
+}
+
+.movedown25 {
+    margin-top: 25vh;
+}

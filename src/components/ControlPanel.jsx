@@ -12,7 +12,11 @@ const ControlPanel = ({ gameStarted, setGameStarted, currentScore, setCurrentSco
             <div className={styles.score}>{`SCORE: ${currentScore.count}`}</div>
             <div className={styles.best_score}>{`BEST SCORE:  ${bestScore.count}`}</div>
         </div>
-        <div className={styles.btns}>
+        <div className={`
+                        ${styles.btns} ${lost && difficulty === 15 ? styles.movedown15 : null }
+                        ${styles.btns} ${won && difficulty === 15 ? styles.movedown15 : null }
+                        ${styles.btns} ${lost && difficulty === 20 ? styles.movedown25 : null }
+                        ${styles.btns} ${won && difficulty === 20 ? styles.movedown25 : null }`}>
             <button
                 onClick={() => {
                     setLost(false);

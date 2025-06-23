@@ -29,14 +29,12 @@ function App() {
   function handleLoss() {
     if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
     setLost(true);
-    console.log('YOU LOSE');
   }
 
   function handleWin() {
     if (currentScore.count > bestScore.count) {setBestScore((draft) => {draft.count = currentScore.count})};
     setWon(true);
     setCurrentScore((draft) => {draft.count = 0});
-    console.log('YOU WIN');
   }
 
   useEffect(() => {
