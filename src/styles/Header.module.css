@@ -130,3 +130,17 @@ button:hover {
     border-radius: 25px;
     margin-top: 10vh;
 }
+
+.howto {
+    display: flex;
+    font-family: 'viga';
+    text-align: center;
+    line-height: 1.8rem;
+    font-size: clamp(12px, 2.2vw, 18px);
+    padding: clamp(0px, 1vw, 100px);
+    color: rgb(238, 204, 55);
+    background-color: rgb(50, 84, 158);
+    border: 2px solid rgb(238, 204, 55);
+    border-radius: 15px;
+    margin-top: 10vh;
+}

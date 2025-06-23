@@ -43,6 +43,11 @@ function Header({ gameStarted, setGameStarted, difficulty, setDifficulty, lost, 
             <div className={`${styles.option} ${difficulty === 15 ? styles.chosen : null}`} onClick={() => {setDifficulty(15)}}>NORMAL</div>
             <div className={`${styles.option} ${difficulty === 20 ? styles.chosen : null}`} onClick={() => {setDifficulty(20)}}>HARD</div>
         </div>
+        <div className={`${styles.howto} ${gameStarted ? styles.hidden : null}`}>
+          HOW TO PLAY?
+          <br />
+          Click all the pokemons one by one without repeating yourself!
+        </div>
     </div>
   )
 }
