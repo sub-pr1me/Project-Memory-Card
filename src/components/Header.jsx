@@ -30,7 +30,10 @@ function Header({ gameStarted, setGameStarted, difficulty, setDifficulty, lost, 
                         `}>{won ?
                         `CONGRATULATIONS! YOU WIN WITH A SCORE OF ${difficulty}!` :
                         `YOU LOSE WITH A SCORE OF ${currentScore.count}. TRY AGAIN!`}
+                        
         </div>
+        <img className={`${styles.lost} ${lost ? null : styles.hidden}`} src='../../image/lose.png' alt="You win" />
+        <img className={`${styles.won} ${won ? null : styles.hidden}`} src='../../image/win.png' alt="You win" />
 
         <button
           className={`${gameStarted ? styles.hidden : null}`}

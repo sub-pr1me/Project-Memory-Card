@@ -57,7 +57,7 @@
 }
 
 .controls button {
-    padding: 0.5vh 2vw 0;
+    padding: 0.5vh 2vh;
     cursor: pointer;
     font-family: 'fugaz';
     font-size: clamp(12px, 4vw, 18px);
